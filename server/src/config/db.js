@@ -31,12 +31,9 @@ export async function connectDB() {
       throw new Error('MONGO_URL is not defined in environment variables');
     }
 
-    const options = {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    };
-
-    await mongoose.connect(env.MONGO_URL, options);
+    // Mongoose 6+ handles URL parsing and topology automatically
+    // No need for deprecated useNewUrlParser and useUnifiedTopology options
+    await mongoose.connect(env.MONGO_URL);
     logger.info('MongoDB connected successfully');
   } catch (error) {
     logger.error(`MongoDB connection error: ${error.message}`);
