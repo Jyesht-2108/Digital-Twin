@@ -1,9 +1,9 @@
+import BrainVisualization from './components/BrainVisualization';
+
 function App() {
   return (
-  <div className="bg-red-500">
-    Hello World
-  </div>
-  )
+    <BrainVisualization patientId="PAT002" />
+  );
 }
 
-export default App
+export default App;
